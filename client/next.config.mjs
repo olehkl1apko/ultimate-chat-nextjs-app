@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["robohash.org"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "robohash.org",
+        port: "",
+      },
+    ],
   },
   async rewrites() {
     return [
