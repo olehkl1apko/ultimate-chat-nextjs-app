@@ -1,21 +1,18 @@
 "use client";
 import React, { useEffect } from "react";
 import { shallow } from "zustand/shallow";
-import { io } from "socket.io-client";
 
 import { fetchUsers } from "@/lib";
 import { useAllUsers } from "@/store/userStore";
 import { userProps } from "@/types";
 import ChatItem from "./ChatItem";
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { socket } from "@/config";
 
 function ChatList({ mySelf }: { mySelf: userProps }) {
   const { users, setUsers } = useAllUsers(
     (state: any) => ({ users: state.users, setUsers: state.setUsers }),
     shallow
   );
-  const socket = io(BACKEND_URL!);
 
   useEffect(() => {
     socket.on("new-user", () => {

@@ -1,17 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { io } from "socket.io-client";
 import { useCookies } from "react-cookie";
 
 import Avatar from "../Avatar";
 import { handleSubmit } from "@/lib";
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { socket } from "@/config";
 
 function Form() {
   const router = useRouter();
-  const socket = io(BACKEND_URL!);
   const [avatarId, setAvatarId] = useState((Math.random() * 20).toFixed());
   const [cookie] = useCookies(["user"]);
 
