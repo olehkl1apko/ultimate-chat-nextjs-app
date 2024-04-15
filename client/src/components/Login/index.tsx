@@ -4,6 +4,9 @@ import { useRouter } from "next/navigation";
 import { io } from "socket.io-client";
 import { useCookies } from "react-cookie";
 
+import Avatar from "../Avatar";
+import { handleSubmit } from "@/lib";
+
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 function Form() {
@@ -20,9 +23,10 @@ function Form() {
 
   return (
     <form
-      onSubmit={(e) => console.log(e, router, avatarId, socket)}
+      onSubmit={(e) => handleSubmit(e, router, avatarId, socket)}
       className="flex flex-col gap-5"
     >
+      <Avatar avatarId={avatarId} setAvatarId={setAvatarId} />
       <div className="flex flex-col xl:flex-row gap-5">
         <div className="form-control w-full">
           <label className="label">
