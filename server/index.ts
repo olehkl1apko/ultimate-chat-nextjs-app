@@ -7,6 +7,7 @@ import { Server } from "socket.io";
 import jwt from "jsonwebtoken";
 
 import { User } from "./userModel";
+import userRouter from "./userRoutes";
 
 const app = express();
 const server = http.createServer(app);
@@ -59,3 +60,5 @@ io.on("connection", (socket) => {
     }
   });
 });
+
+app.use("/", userRouter);
