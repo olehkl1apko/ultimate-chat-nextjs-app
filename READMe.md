@@ -1,4 +1,4 @@
-# Ultimte chat app
+# Ultimate chat app
 
 ## Features
 
