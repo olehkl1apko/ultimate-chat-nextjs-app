@@ -1,4 +1,4 @@
-# Messaging chat application using Next.js 13 and Express
+# Ultimte chat app
 
 ## Features
 
