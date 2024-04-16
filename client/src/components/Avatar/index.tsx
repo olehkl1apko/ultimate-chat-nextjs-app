@@ -7,7 +7,7 @@ import { AvatarProps } from "@/types";
 import defaultAvatar from "../../assets/defaultAvatar.png";
 
 function Avatar({ avatarId, setAvatarId }: AvatarProps) {
-  const randomAvatar = `https://robohash.org/${avatarId}.png` || defaultAvatar;
+  const randomAvatar = `https://robohash.org/${avatarId}.png`;
 
   return (
     <div
@@ -16,13 +16,15 @@ function Avatar({ avatarId, setAvatarId }: AvatarProps) {
       data-tip="Click to regenerate avatar"
     >
       <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-        <Image
-          src={randomAvatar}
-          width={256}
-          height={256}
-          alt="avatar"
-          priority
-        />
+        {randomAvatar && (
+          <Image
+            src={randomAvatar}
+            width={256}
+            height={256}
+            alt="avatar"
+            priority
+          />
+        )}
       </div>
     </div>
   );
