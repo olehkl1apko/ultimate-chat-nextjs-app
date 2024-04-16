@@ -1,10 +1,14 @@
 "use client";
+
 import Image from "next/image";
 import React from "react";
 
 import { AvatarProps } from "@/types";
+import defaultAvatar from "../../assets/defaultAvatar.png";
 
 function Avatar({ avatarId, setAvatarId }: AvatarProps) {
+  const randomAvatar = `https://robohash.org/${avatarId}.png` || defaultAvatar;
+
   return (
     <div
       onClick={() => setAvatarId((Math.random() * 20).toFixed())}
@@ -13,7 +17,7 @@ function Avatar({ avatarId, setAvatarId }: AvatarProps) {
     >
       <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
         <Image
-          src={`https://robohash.org/${avatarId}.png`}
+          src={randomAvatar}
           width={256}
           height={256}
           alt="avatar"

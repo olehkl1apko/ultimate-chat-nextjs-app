@@ -1,22 +1,25 @@
+import { createWithEqualityFn } from "zustand/traditional";
+
 import { selectedUserState, userState } from "@/types";
-import { create } from "zustand";
 
-export const useUser = create<userState>((set) => ({
-    myUser: undefined,
-    setUser:(user)=>set({myUser:user}),
-}))
+export const useUser = createWithEqualityFn<userState>((set) => ({
+  myUser: undefined,
+  setUser: (user) => set({ myUser: user }),
+}));
 
-export const useAllUsers = create((set) => ({
-    users: undefined,
-    setUsers:(users:any)=>set({users}),
-}))
+export const useAllUsers = createWithEqualityFn((set) => ({
+  users: undefined,
+  setUsers: (users: any) => set({ users }),
+}));
 
-export const useSelectedUser = create<selectedUserState>((set) => ({
+export const useSelectedUser = createWithEqualityFn<selectedUserState>(
+  (set) => ({
     selectedUser: undefined,
-    setSelectedUser:(user)=>set({selectedUser:user})
-}))
+    setSelectedUser: (user) => set({ selectedUser: user }),
+  })
+);
 
-export const useMessages = create((set) => ({
-    message: undefined,
-    setMessages:(messages:any)=>set({messages})
-}))
+export const useMessages = createWithEqualityFn((set) => ({
+  message: undefined,
+  setMessages: (messages: any) => set({ messages }),
+}));

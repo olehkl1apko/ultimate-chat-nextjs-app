@@ -25,12 +25,9 @@ function ChatItem({ user }: { user: userProps }) {
       >
         <div className="avatar">
           <div className="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-            <Image
-              src={user?.imageId || ""}
-              width={256}
-              height={256}
-              alt="avatar"
-            />
+            {user && user.imageId && (
+              <Image src={user.imageId} width={256} height={256} alt="image" />
+            )}
           </div>
         </div>
         <div className="flex flex-col justify-between">

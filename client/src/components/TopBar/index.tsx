@@ -20,12 +20,14 @@ function TopBar({ selectedUser }: { selectedUser: userProps }) {
           </button>
           <div className="avatar ml-3 cursor-auto">
             <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <Image
-                src={selectedUser?.imageId || ""}
-                width={256}
-                height={256}
-                alt="avatar"
-              />
+              {selectedUser && selectedUser.imageId && (
+                <Image
+                  src={selectedUser.imageId}
+                  width={256}
+                  height={256}
+                  alt="avatar"
+                />
+              )}
             </div>
           </div>
           <div className="flex flex-col justify-between">

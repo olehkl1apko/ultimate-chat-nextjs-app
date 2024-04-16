@@ -8,14 +8,11 @@ function SearchBar({ user }: { user: userProps }) {
   return (
     <div className="flex gap-4">
       <div className="avatar online">
-        <div className="w-12 rounded-full ring">
-          <Image
-            src={user?.imageId || ""}
-            width={256}
-            height={256}
-            alt="avatar"
-          />
-        </div>
+        {user && user.imageId && (
+          <div className="w-12 rounded-full ring">
+            <Image src={user.imageId} width={256} height={256} alt="avatar" />
+          </div>
+        )}
       </div>
       <div className="relative w-full">
         <input
