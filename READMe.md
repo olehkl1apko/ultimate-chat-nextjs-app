@@ -1,4 +1,4 @@
-# Messaging chat application using Next.js 13 and Express
+# Ultimate chat app
 
 ## Features
 
@@ -6,4 +6,4 @@
 - Real-time messaging using websockets
 - Real-time phone call and video chat
   
-<img src='/public/repoLogo.png'/>
+<img src='/public/repoLogo.png' width="300px" hight="250px"/>
